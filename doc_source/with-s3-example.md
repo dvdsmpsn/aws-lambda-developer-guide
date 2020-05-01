@@ -263,6 +263,14 @@ In this step, you invoke the Lambda function manually using sample Amazon S3 eve
    $ aws lambda invoke --function-name CreateThumbnail --invocation-type Event \
    --payload file://inputFile.txt outputfile.txt
    ```
+   
+   If you're using AWS CLI v2, it defaults to base 64 input, so the command would be:
+
+   ```
+   aws lambda invoke --function-name CreateThumbnail --invocation-type Event \
+     --cli-binary-format raw-in-base64-out \
+     --payload file://inputFile.txt outputfile.txt
+   ```
 
 1. Verify that the thumbnail was created in the target bucket\.
 
